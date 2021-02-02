@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../static/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artists proposés</title>
+</head>
+<body>
+    <div class="bouton">
+    <FORM ACTION="/">
+        <INPUT TYPE="SUBMIT" VALUE="  Retour  ">
+      </FORM>
+    </div>
+
+    <h1>Artists les plus écoutés : </h1>
+    <div>
+    {% for name_artist in recommandation %}
+        <p>{{ name_artist }} </p>
+            
+    {% endfor %}
+</div>
+    <h1>Artists recommandés pour vous : </h1>
+    <div>
+    {% for artist_for_you in recom_for_you %}
+        <p>{{ artist_for_you }} </p>
+            
+    {% endfor %}
+</div>
+</div>
+<h1>Autres utilisateurs écoutent : </h1>
+<div>
+{% for artist_you in For_you %}
+    <p>{{ artist_you }} </p>
+        
+{% endfor %}
+</div>
+</div>
+<h1>Artists similaires : </h1>
+<div>
+{% for artist_sim in For_you_sim %}
+    <p>{{ artist_sim }} </p>
+        
+{% endfor %}
+</div>
+</body>
+</html>

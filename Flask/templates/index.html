@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../static/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste Artists</title>
+</head>
+<body>
+    <form method="POST" action="/page1">
+    <h1>Liste Artists</h1>
+    <div>Séléctionnez un ou plusieurs artists : </div>
+    <div class = "chart" , id  = "data">
+        <p> <input type="submit" value="Envoyer" /> </p>
+        
+        {% for name in artist %}
+        <p>{{ name }} <input type="checkbox" name="artistcheckbox" value={{ name }} id ='name'  />  </p>
+    {% endfor %}
+    <p> <input type="submit" value="Envoyer" /> </p>
+    </div>
+    </form>
+      
+    
+</body>
+</html>
+
