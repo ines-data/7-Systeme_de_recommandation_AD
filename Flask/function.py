@@ -40,6 +40,9 @@ ap = ap.assign(playCountScaled=play_count_scaled)
 # Build a user-artist rating matrix 
 ratings_df = ap.pivot(index='userID', columns='artistID', values='playCountScaled')
 
+
+
+
 ##################### fonction pour afficher la liste de tous les artists ###############################
 
 def artist_data():
@@ -188,7 +191,7 @@ def for_you(artist_choice):
 
 def for_you_sim(artist_choice):
     I = []
-    res = []
+    dict_artist = {}
     list_artist_choice = []
     num_index = []
     add_user = [0]*17632
@@ -215,10 +218,12 @@ def for_you_sim(artist_choice):
                     ligne = ratings_True_False.iloc[i]
                     cosine_sim = cosine_similarity(np.array(ligne).reshape(1,17632), add_user_DataFrame)
                     if cosine_sim >= 0.10:
-                        res.append(ligne)
-                        I.append(i)
+                        dict_artist[i]=cosine_sim
+                        valeur = [(value, key) for key, value in dict_artist.items()]
+                        max_val = max(valeur)[1]
+                        I.append(max_val)
                         l = list(plays.artistID[plays.userID==I[0]])
                         for each in l:
                             p = list(artists.name[artists.id==each])#.values
                             liste_recom.append(p)
-    return liste_recom[0:11]
+    return liste_recom[0:10]
